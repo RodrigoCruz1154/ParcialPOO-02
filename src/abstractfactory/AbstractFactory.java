@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package abstractfactory;
+
+import abstractfactory.edificios.Edificio;
+import abstractfactory.militantes.Militante;
+import abstractfactory.terrestres.Terrestre;
+import abstractfactory.vehiculos.Vehiculo;
 
 /**
  *
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
-public class AbstractFactory {
-    
+
+public interface AbstractFactory {
+    Edificio getEdificio();
+    Militante getMilitante();
+    Terrestre getTerrestre();
+    Vehiculo getVehiculo();
 }
