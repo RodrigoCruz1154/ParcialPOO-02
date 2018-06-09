@@ -10,10 +10,10 @@ package abstractfactory.edificios;
  * @author acer
  */
 public class Taller implements Edificio{
-
     @Override
     public void build() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Su taller ha sido construida.");
+        int vida=4000;
+        System.out.println("Vida: "+vida);
     }
-    
 }
