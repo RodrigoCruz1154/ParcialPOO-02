@@ -18,8 +18,10 @@ public class FactoryEdificios implements AbstractFactory{
 
     @Override
     public Edificio getEdificio(int type) {
-        System.out.println("Escriba el tipo de edificación que desea: \nEscribe (1) si deseas crear una torreta.\nEscribe (2) si deseas añadir un centro de entrenamiento para tus tropas terrestres.\nEscribe (3) si deseas crear un taller para tus vehículos.\n");
+        
         switch(type){
+            case 4:
+                return new BaseOperaciones();
             case 1:
                 return new Torretas();
             case 2:

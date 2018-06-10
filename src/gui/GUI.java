@@ -24,7 +24,8 @@ public class GUI extends JFrame{
     }
     
     public void initialComponents(){
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         setLayout(null);
         
         texto = new JTextField("SoS");
@@ -44,16 +45,12 @@ public class GUI extends JFrame{
         container.add(boton);
         
         
-        setSize(300,300);
+        setSize(500,500);
     }
     
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            @Override
-            public void run() {
-                new GUI().setVisible(true);
-            }
-           
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUI().setVisible(true);
         });
     }
 }

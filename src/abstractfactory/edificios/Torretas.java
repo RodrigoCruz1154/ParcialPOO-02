@@ -17,6 +17,5 @@ public class Torretas implements Edificio{
         System.out.println("Su torreta ha sido construida.");
         int vida=4000;
         System.out.println("Vida: "+vida);
-    }
-    
+    }   
 }
