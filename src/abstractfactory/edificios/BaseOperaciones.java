@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import jugador.Jugador;
 import static jugador.Jugar.AnsiCodeExample.ANSI_BLUE;
+import static jugador.Jugar.AnsiCodeExample.ANSI_RED;
 
 /**
  *
@@ -103,6 +104,17 @@ public class BaseOperaciones implements Edificio {
             System.out.println(jugador1.getBando()+ " VS " + jugador2.getBando());
             System.out.println("----------------------------------------------");
             boolean verdad = true;
+            while(verdad){
+                System.out.println("- Crea tu arsenal -");
+                int caso = input.nextInt();
+                if(caso==1){
+                    System.out.println("Has creado algo :v");
+                    verdad=false;
+                }
+                if(verdad == false){
+                    break;
+                }
+            }
     }
 
 }
