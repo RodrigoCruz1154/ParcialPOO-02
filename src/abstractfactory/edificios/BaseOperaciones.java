@@ -12,6 +12,7 @@ import abstractfactory.terrestres.Terrestre;
 import abstractfactory.vehiculos.Vehiculo;
 import java.util.ArrayList;
 import java.util.Scanner;
+import jugador.Jugador1;
 
 /**
  *
@@ -27,13 +28,16 @@ public class BaseOperaciones implements Edificio {
     Scanner input = new Scanner(System.in);
 
     @Override
-    public void build() {
-        System.out.println("Elija un bando por favor: ");        
-        String bando = input.nextLine();
-        System.out.println("Su base de operaciones ha sido creada.");
+    public void build(int fase, String nombre, String bando) {
         int vida = 5500, edificios = 0, terrestres = 0, vehiculos = 0;
-        System.out.println("Vida actual: " + vida + "\nEdificios creados actualmente: " + edificios + "\nUnidades terrestres creadas: " + terrestres + "\nVehiculos creados: " + vehiculos);
-
+        Jugador1 jugador = new Jugador1(nombre, bando);
+        jugador.setNombre(nombre);
+        if (fase == 0) {
+            System.out.println("Su base de operaciones ha sido creada.");
+            System.out.println("\nVida actual: " + vida + "\nEdificios creados actualmente: " + edificios + "\nUnidades terrestres creadas: " + terrestres + "\nVehiculos creados: " + vehiculos);
+        }
+        fase++;
+        System.out.println("Fase: " + fase);
     }
 
 }

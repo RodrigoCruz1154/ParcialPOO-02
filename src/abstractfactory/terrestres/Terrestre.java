@@ -10,5 +10,6 @@ package abstractfactory.terrestres;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public interface Terrestre {
-    void reclutar();
+    int atacar();
+    void daño(int salud);
 }

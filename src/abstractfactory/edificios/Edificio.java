@@ -10,5 +10,5 @@ package abstractfactory.edificios;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public interface Edificio {
-    void build();
+    void build(int fase, String nombre, String bando);
 }

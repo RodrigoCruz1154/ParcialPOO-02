@@ -11,10 +11,9 @@ package abstractfactory.edificios;
  */
 public class Entrenamiento implements Edificio{
 
+
     @Override
-    public void build() {
-        System.out.println("Su centro de entrenamiento ha sido construida.");
-        int vida=4000;
-        System.out.println("Vida: "+vida);
+    public void build(int fase, String nombre, String bando) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

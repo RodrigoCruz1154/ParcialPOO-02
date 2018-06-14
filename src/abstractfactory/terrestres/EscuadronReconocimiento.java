@@ -6,12 +6,14 @@ package abstractfactory.terrestres;
  */
 
 public class EscuadronReconocimiento implements Terrestre{
+    @Override
+    public int atacar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
-    public void reclutar() {
-        System.out.println("¡A la orden mi comandante!");
-        int salud = 800,ataque = 60,defensa = 30,ataqueTorres = 40;
-        System.out.println("Salud: " + salud + "\n" + "Ataque: " + ataque + "\n" + "Defensa: " + defensa + "\n" + "Daño a torres: " + ataqueTorres);
+    public void daño(int salud) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
