@@ -10,7 +10,7 @@ package abstractfactory.edificios;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public interface Edificio {
-    void buildJ1(int fase, String nombre, String bando);
-    void buildJ2(int fase, String nombre, String bando);
-    void inGame();
+    void build(int iteracion, String nombre, String bando,String nombre2,String bando2);
+    Edificio buildEdificio(int oro, int faseExt);
+    void usoEdificio(Edificio edificacion);
 }

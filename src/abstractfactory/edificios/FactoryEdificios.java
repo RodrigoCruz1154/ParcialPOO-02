@@ -20,14 +20,20 @@ public class FactoryEdificios implements AbstractFactory{
     public Edificio getEdificio(int type) {
         
         switch(type){
-            case 4:
-                return new BaseOperaciones();
             case 1:
                 return new Torretas();
             case 2:
                 return new Entrenamiento();
             case 3:
                 return new Taller();
+            case 4:
+                return new BaseOperaciones();
+            case 5:
+                return new Canteria();
+            case 6:
+                return new Carpinteria();
+            case 7:
+                return new Banco();
             default:
                 break;
         }

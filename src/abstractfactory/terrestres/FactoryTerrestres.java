@@ -27,8 +27,7 @@ public class FactoryTerrestres implements AbstractFactory{
     }
 
     @Override
-    public Terrestre getTerrestre(int type) {
-        System.out.println("Elija la unidad que desea crear: \n1.Infantería.\n2.Escuadrón de reconocimiento.\n3.Infantería mecanizada.");
+    public Terrestre getTerrestre(int type) {    
         switch(type){
             case 1:
                 return new Infanteria();

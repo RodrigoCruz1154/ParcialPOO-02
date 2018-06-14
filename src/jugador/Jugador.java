@@ -10,8 +10,24 @@ package jugador;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public class Jugador {
-    private String nombre;
-    private String bando;
+    private String nombre,nombre1;
+    private String bando,bando1;
+
+    public String getNombre1() {
+        return nombre1;
+    }
+
+    public void setNombre1(String nombre1) {
+        this.nombre1 = nombre1;
+    }
+
+    public String getBando1() {
+        return bando1;
+    }
+
+    public void setBando1(String bando1) {
+        this.bando1 = bando1;
+    }
 
     public Jugador(String nombre, String bando) {
         this.nombre = nombre;

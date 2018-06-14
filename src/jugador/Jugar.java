@@ -20,17 +20,23 @@ import static jugador.Jugar.AnsiCodeExample.GREEN_FILL;
  */
 public class Jugar {
 
-    public class AnsiCodeExample{
+    public class AnsiCodeExample{ //COLOREAR
         public static final String ANSI_RESET = "\u001B[0m";
         public static final String ANSI_RED = "\u001B[31m";
         public static final String GREEN_FILL = "\u001B[0;42m";
+        public static final String BLACK_FILL = "\u001B[0;40m";
         public static final String ANSI_BLUE = "\u001B[34m";
+        public static final String ANSI_GREEN = "\u001B[32m";
+        public static final String ANSI_YELLOW = "\u001B[33m";
+        public static final String ANSI_MAGENTA = "\u001B[35m";
+        public static final String ANSI_CYAN = "\u001B[36m";
     }
     
     public void Jugar() {
         Scanner input = new Scanner(System.in);
         boolean flag = true, bandera = true;
         int iteracion = 0, faseJ1 = 0, faseJ2 = 1;
+        String name="",milicia="",name1="",milicia1="";
         AbstractFactory factory;
 
 //Jugador 1        
@@ -88,9 +94,11 @@ public class Jugar {
                 System.out.println("-------------------------------------------------");
                 System.out.println("Jugador 1: " + nombre);
                 System.out.println("Comandará a: " + bandoLocal);
+                name = nombre;
+                milicia = bandoLocal;
                 factory = FactoryProducer.getFactory(1);
                 Edificio centralj1 = factory.getEdificio(4);
-                centralj1.buildJ1(faseJ1, nombre, bandoLocal);
+                centralj1.build(faseJ1, name, milicia,name1,milicia1);
                 flag = false;
             }
             if (flag == false) {
@@ -100,6 +108,7 @@ public class Jugar {
                 System.err.println("Ingrese un dato válido");
                 System.out.println(" ");
             }
+            
         }
 
 //Jugador 2        
@@ -121,7 +130,7 @@ public class Jugar {
             if (toLowerCase2.equals("a")) {
                 System.out.println("Cargando...");
                 System.out.println("¡Saludos guerrero!\nAntes de comenzar a jugar necesito saber tu nombre: ");
-                String nombre = input.next();
+                String nombre1 = input.next();
                 System.out.println("\nElija un bando por favor: ");
                 System.out.println("1.Blue Earth\n2.Green Comet\n3.Orange Moon\n4.Yellow Star");
                 boolean validarBando = true;
@@ -151,13 +160,15 @@ public class Jugar {
                     }
                 }
                 System.out.println("-------------------------------------------------");
-                System.out.println("Jugador 2: " + nombre);
+                System.out.println("Jugador 2: " + nombre1);
                 System.out.println("Comandará a: " + bandoLocal2);
+                name1 = nombre1;
+                milicia1 = bandoLocal2;
                 factory = FactoryProducer.getFactory(1);
                 Edificio centralj2 = factory.getEdificio(4);
-                centralj2.buildJ2(faseJ2, nombre, bandoLocal2);
-                centralj2.inGame();
+                centralj2.build(faseJ2, name, milicia,name1,milicia1);
                 bandera = false;
+                
             }
             if (bandera == false) {
                 break;

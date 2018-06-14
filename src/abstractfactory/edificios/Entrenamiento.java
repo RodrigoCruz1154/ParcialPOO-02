@@ -5,25 +5,45 @@
  */
 package abstractfactory.edificios;
 
+import abstractfactory.AbstractFactory;
+import abstractfactory.FactoryProducer;
+import abstractfactory.terrestres.Terrestre;
+
 /**
  *
  * @author acer
  */
-public class Entrenamiento implements Edificio{
+public class Entrenamiento implements Edificio {
 
+    AbstractFactory guerreros;
 
-    @Override
-    public void buildJ1(int fase, String nombre, String bando) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private int vida;
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 
     @Override
-    public void buildJ2(int fase, String nombre, String bando) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
     }
 
     @Override
-    public void inGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Edificio buildEdificio(int oro, int faseExt) {
+        Entrenamiento construccion = new Entrenamiento();
+        construccion.setVida(2500);
+        int faseinterna = 0;
+        if (faseExt == 0) {
+            System.out.println("Construyendo, por favor espere...");
+        }
+        return construccion;
+    }
+
+    @Override
+    public void usoEdificio(Edificio edificacion) {
+        System.out.println("¡Se ha construido su base de entrenamiento!");
     }
 }

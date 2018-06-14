@@ -7,9 +7,10 @@ package abstractfactory.edificios;
 
 /**
  *
- * @author acer
+ * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
-public class Taller implements Edificio{
+public class Carpinteria implements Edificio{
+
     @Override
     public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -24,5 +25,6 @@ public class Taller implements Edificio{
     public void usoEdificio(Edificio edificacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
 }
