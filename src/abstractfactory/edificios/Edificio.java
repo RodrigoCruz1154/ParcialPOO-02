@@ -11,6 +11,6 @@ package abstractfactory.edificios;
  */
 public interface Edificio {
     void build(int iteracion, String nombre, String bando,String nombre2,String bando2);
-    Edificio buildEdificio(int oro, int faseExt);
-    void usoEdificio(Edificio edificacion);
+    void buildEdificio();
+    void usoEdificio(int unidad);
 }

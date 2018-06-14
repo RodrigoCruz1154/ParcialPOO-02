@@ -5,6 +5,9 @@
  */
 package abstractfactory.edificios;
 
+import static jugador.Jugar.AnsiCodeExample.ANSI_GREEN;
+import static jugador.Jugar.AnsiCodeExample.ANSI_RESET;
+
 /**
  *
  * @author acer
@@ -12,17 +15,17 @@ package abstractfactory.edificios;
 public class Taller implements Edificio{
     @Override
     public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
-    public Edificio buildEdificio(int oro, int faseExt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void buildEdificio() {
+        System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
+        System.out.println("-------------------------------------------");
     }
 
     @Override
-    public void usoEdificio(Edificio edificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void usoEdificio(int unidad) {
+        Taller vehiculos = new Taller();
     }
-    
 }
