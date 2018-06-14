@@ -27,5 +27,7 @@ public class Taller implements Edificio{
     @Override
     public void usoEdificio(int unidad) {
         Taller vehiculos = new Taller();
+        System.out.println("-------------------------------------------");
+        System.out.println(ANSI_GREEN + "¡Se ha construido su taller!" + ANSI_RESET);
     }
 }

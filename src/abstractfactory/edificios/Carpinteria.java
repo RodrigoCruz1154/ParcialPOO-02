@@ -16,18 +16,18 @@ public class Carpinteria implements Edificio {
 
     @Override
     public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
+    }
+
+    @Override
+    public void buildEdificio() {
         System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
         System.out.println("-------------------------------------------");
     }
 
     @Override
-    public void buildEdificio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void usoEdificio(int unidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("-------------------------------------------");
+        System.out.println(ANSI_GREEN + "¡Se ha construido su carpinteria!" + ANSI_RESET);
     }
 
 }

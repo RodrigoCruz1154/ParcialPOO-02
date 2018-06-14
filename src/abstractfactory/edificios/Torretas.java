@@ -22,11 +22,12 @@ public class Torretas implements Edificio {
 
     @Override
     public void buildEdificio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void usoEdificio(int unidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("-------------------------------------------");
+        System.out.println(ANSI_GREEN + "¡Se ha creado una torreta!" + ANSI_RESET);
     }
 }

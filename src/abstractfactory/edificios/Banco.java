@@ -27,7 +27,8 @@ public class Banco implements Edificio {
 
     @Override
     public void usoEdificio(int unidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("-------------------------------------------");
+        System.out.println(ANSI_GREEN+"¡Se ha construido su banco!"+ANSI_RESET);
     }
 
 }
