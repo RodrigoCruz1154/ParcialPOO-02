@@ -9,16 +9,16 @@ package jugador;
  *
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
-public class Jugador2 {
+public class Jugador {
     private String nombre;
     private String bando;
 
-    public Jugador2(String nombre, String bando) {
+    public Jugador(String nombre, String bando) {
         this.nombre = nombre;
         this.bando = bando;
     }
 
-    public Jugador2() {}
+    public Jugador() {}
 
     public String getNombre() {
         return nombre;
@@ -35,4 +35,6 @@ public class Jugador2 {
     public void setBando(String bando) {
         this.bando = bando;
     }
+    
+    
 }

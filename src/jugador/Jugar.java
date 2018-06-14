@@ -9,8 +9,10 @@ import abstractfactory.AbstractFactory;
 import abstractfactory.FactoryProducer;
 import abstractfactory.edificios.Edificio;
 import gui.GUI;
-import java.util.ArrayList;
 import java.util.Scanner;
+import static jugador.Jugar.AnsiCodeExample.ANSI_RED;
+import static jugador.Jugar.AnsiCodeExample.ANSI_RESET;
+import static jugador.Jugar.AnsiCodeExample.GREEN_FILL;
 
 /**
  *
@@ -18,19 +20,24 @@ import java.util.Scanner;
  */
 public class Jugar {
 
+    public class AnsiCodeExample{
+        public static final String ANSI_RESET = "\u001B[0m";
+        public static final String ANSI_RED = "\u001B[31m";
+        public static final String GREEN_FILL = "\u001B[0;42m";
+        public static final String ANSI_BLUE = "\u001B[34m";
+    }
+    
     public void Jugar() {
         Scanner input = new Scanner(System.in);
         boolean flag = true, bandera = true;
-        int iteracion = 0, faseJ1 = 0, faseJ2 = 0;
+        int iteracion = 0, faseJ1 = 0, faseJ2 = 1;
         AbstractFactory factory;
-        ArrayList<String> jugadores = new ArrayList<>();
-        Jugador1 jugador1 = new Jugador1();
-        Jugador2 jugador2 = new Jugador2();
 
+//Jugador 1        
         while (flag) {
-            System.out.println("\n¡Bienvenido a Omega Land!\n\nAquí desatarás el poder del bando que tú elijas para alzarte victorioso.\nCada bando tiene aptitudes distintas e ideales para tu estilo de combate,para saber un poco más acerca de ellas escribe <info>.\nPara comenzar a jugar pulsa <A>, para salir <S>:");
+            System.out.println(GREEN_FILL + "\n¡Bienvenido a Omega Land!"+ ANSI_RESET + "\n\nAquí desatarás el poder del bando que tú elijas para alzarte victorioso.\nCada bando tiene aptitudes distintas e ideales para tu estilo de combate,para saber un poco más acerca de ellas escribe" +ANSI_RED +" <info>"+ANSI_RESET+".\nPara comenzar a jugar pulsa"+ANSI_RED+ " <A>"+ANSI_RESET+ ", para salir" +ANSI_RED+ " <S>"+ANSI_RESET+":");
             System.out.println("");
-            String select1 = input.nextLine();
+            String select1 = input.next();
             System.out.println("");
             String toLowerCase = select1.toLowerCase();
             if (toLowerCase.equals("info")) {
@@ -47,17 +54,43 @@ public class Jugar {
                 System.out.println("Cargando...");
                 System.out.println("¡Saludos guerrero!\nAntes de comenzar a jugar necesito saber tu nombre: ");
                 String nombre = input.next();
-                jugador1.setNombre(nombre);
-                System.out.println("Elija un bando por favor: ");
-                String bando = input.next();
-                jugador1.setBando(bando);
-                System.err.println("-------------------------------------------------");
+                System.out.println("\nElija un bando por favor: ");
+                System.out.println("1.Blue Earth\n2.Green Comet\n3.Orange Moon\n4.Yellow Star");
+                boolean validarBando = true;
+                String bandoLocal = "";
+                while (validarBando) {
+                    int bando = input.nextInt();
+                    if (bando == 1) {
+                        bandoLocal = "Earth";
+                        break;
+                    }
+                    if (bando == 2) {
+                        bandoLocal = "Comet";
+                        break;
+                    }
+                    if (bando == 3) {
+                        bandoLocal = "Moon";
+                        break;
+                    }
+                    if (bando == 4) {
+                        bandoLocal = "Star";
+                        break;
+                    } 
+                    else {
+                        System.out.println(" ");
+                        System.out.println(ANSI_RED + "No existe un quinto bando en discordia que corresponda a ese número. Escriba un dato válido.");
+                        System.out.println("Elija un bando por favor: ");
+                    }
+                    if (validarBando == false) {
+                        break;
+                    }
+                }
+                System.out.println("-------------------------------------------------");
                 System.out.println("Jugador 1: " + nombre);
-                System.out.println("Comandará a: " + bando);
-                jugadores.add(nombre);
+                System.out.println("Comandará a: " + bandoLocal);
                 factory = FactoryProducer.getFactory(1);
                 Edificio centralj1 = factory.getEdificio(4);
-                centralj1.build(faseJ1, nombre, bando);
+                centralj1.buildJ1(faseJ1, nombre, bandoLocal);
                 flag = false;
             }
             if (flag == false) {
@@ -65,52 +98,74 @@ public class Jugar {
             }
             if (!toLowerCase.equals("a") || !toLowerCase.equals("s") || !toLowerCase.equals("info")) {
                 System.err.println("Ingrese un dato válido");
-                System.out.println("-------------------------------------------------");
                 System.out.println(" ");
             }
         }
 
+//Jugador 2        
         while (bandera) {
-            System.out.println("\n¡Bienvenido a Omega Land!\n\nAquí desatarás el poder del bando que tú elijas para alzarte victorioso.\nCada bando tiene aptitudes distintas e ideales para tu estilo de combate,para saber un poco más acerca de ellas escribe <info>.\nPara comenzar a jugar pulsa <A>, para salir <S>:");
+            System.out.println(GREEN_FILL + "\n¡Bienvenido a Omega Land!"+ ANSI_RESET + "\n\nAquí desatarás el poder del bando que tú elijas para alzarte victorioso.\nCada bando tiene aptitudes distintas e ideales para tu estilo de combate,para saber un poco más acerca de ellas escribe" +ANSI_RED +" <info>"+ANSI_RESET+".\nPara comenzar a jugar pulsa"+ANSI_RED+ " <A>"+ANSI_RESET+ ", para salir" +ANSI_RED+ " <S>"+ANSI_RESET+":");
             System.out.println("");
-            String select1 = input.nextLine();
+            String select2 = input.next();
             System.out.println("");
-            String toLowerCase = select1.toLowerCase();
-            if (toLowerCase.equals("info")) {
+            String toLowerCase2 = select2.toLowerCase();
+            if (toLowerCase2.equals("info")) {
                 new GUI().setVisible(true);
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
             }
-            if (toLowerCase.equals("s")) {
+            if (toLowerCase2.equals("s")) {
                 System.out.println("¡Gracias por jugar! Vuelve pronto.");
                 bandera = false;
             }
-            if (toLowerCase.equals("a")) {
+            if (toLowerCase2.equals("a")) {
                 System.out.println("Cargando...");
                 System.out.println("¡Saludos guerrero!\nAntes de comenzar a jugar necesito saber tu nombre: ");
                 String nombre = input.next();
-                jugador2.setNombre(nombre);
-                System.out.println("Elija un bando por favor: ");
-                String bando = input.next();
-                jugador2.setBando(bando);
-                System.err.println("-------------------------------------------------");
+                System.out.println("\nElija un bando por favor: ");
+                System.out.println("1.Blue Earth\n2.Green Comet\n3.Orange Moon\n4.Yellow Star");
+                boolean validarBando = true;
+                String bandoLocal2 = "";
+                while (validarBando) {
+                    int bando = input.nextInt();
+                    if (bando == 1) {
+                        bandoLocal2 = "Earth";
+                        break;
+                    }
+                    if (bando == 2) {
+                        bandoLocal2 = "Comet";
+                        break;
+                    }
+                    if (bando == 3) {
+                        bandoLocal2 = "Moon";
+                        break;
+                    }
+                    if (bando == 4) {
+                        bandoLocal2 = "Star";
+                        break;
+                    } 
+                    if (bando != 1 || bando != 2 || bando != 3 || bando != 4) {
+                        System.out.println(" ");
+                        System.out.println(ANSI_RED + "No existe un quinto bando en discordia que corresponda a ese número. Escriba un dato válido.");
+                        System.out.println("Elija un bando por favor: ");
+                    }
+                }
+                System.out.println("-------------------------------------------------");
                 System.out.println("Jugador 2: " + nombre);
-                System.out.println("Comandará a: " + bando);
-                jugadores.add(nombre);
+                System.out.println("Comandará a: " + bandoLocal2);
                 factory = FactoryProducer.getFactory(1);
                 Edificio centralj2 = factory.getEdificio(4);
-                centralj2.build(faseJ2, nombre, bando);
+                centralj2.buildJ2(faseJ2, nombre, bandoLocal2);
+                centralj2.inGame();
                 bandera = false;
             }
             if (bandera == false) {
                 break;
             }
-            if (!toLowerCase.equals("a") || !toLowerCase.equals("s") || !toLowerCase.equals("info")) {
+            if (!toLowerCase2.equals("a") || !toLowerCase2.equals("s") || !toLowerCase2.equals("info")) {
                 System.err.println("Ingrese un dato válido");
-                System.out.println("-------------------------------------------------");
                 System.out.println(" ");
             }
         }
-
     }
 }

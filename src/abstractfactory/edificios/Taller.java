@@ -11,7 +11,17 @@ package abstractfactory.edificios;
  */
 public class Taller implements Edificio{
     @Override
-    public void build(int fase, String nombre, String bando) {
+    public void buildJ1(int fase, String nombre, String bando) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void buildJ2(int fase, String nombre, String bando) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void inGame() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
