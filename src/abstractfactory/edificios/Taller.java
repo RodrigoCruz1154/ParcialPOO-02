@@ -78,9 +78,11 @@ public class Taller implements Edificio{
                 System.out.println("-------------------------------------------");
                 taller1.add(soldado);
             }
+        }
     }
 
     @Override
     public int getRecurso(int dia,int recurso){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
