@@ -13,21 +13,37 @@ import static jugador.Jugar.AnsiCodeExample.ANSI_RESET;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public class Carpinteria implements Edificio {
+    
+    private int madera;
 
+    private int getMadera() {
+        return madera;
+    }
+
+    private void setMadera(int madera) {
+        this.madera = madera;
+    }
+    
     @Override
     public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
     }
 
     @Override
-    public void buildEdificio() {
+    public boolean buildEdificio() {
         System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
         System.out.println("-------------------------------------------");
+        return true;
     }
 
     @Override
     public void usoEdificio(int unidad) {
-        System.out.println("-------------------------------------------");
-        System.out.println(ANSI_GREEN + "¡Se ha construido su carpinteria!" + ANSI_RESET);
+    }
+
+    @Override
+    public int getRecurso(int dia,int recurso) {
+        Carpinteria carpinteria = new Carpinteria();
+        carpinteria.setMadera(recurso + 75);
+        return carpinteria.getMadera();
     }
 
 }

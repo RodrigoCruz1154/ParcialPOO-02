@@ -29,17 +29,21 @@ public class Banco implements Edificio {
     }
 
     @Override
-    public void buildEdificio() {
+    public boolean buildEdificio() {
         System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
         System.out.println("-------------------------------------------");
+        return true;
     }
 
     @Override
     public void usoEdificio(int unidad) {
+    }
+
+    @Override
+    public int getRecurso(int dia,int recurso) {
         Banco banco = new Banco();
-        banco.setOro(unidad);
-        System.out.println("-------------------------------------------");
-        System.out.println(ANSI_GREEN+"¡Se ha construido su banco!"+ANSI_RESET);
+        banco.setOro(recurso+75);
+        return banco.getOro();
     }
 
 }

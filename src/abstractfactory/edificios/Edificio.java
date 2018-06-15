@@ -10,7 +10,8 @@ package abstractfactory.edificios;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public interface Edificio {
-    void build(int iteracion, String nombre, String bando,String nombre2,String bando2);
-    void buildEdificio();
-    void usoEdificio(int unidad);
+    public void build(int iteracion, String nombre, String bando,String nombre2,String bando2);
+    public boolean buildEdificio();
+    public void usoEdificio(int unidad);
+    public int getRecurso(int dia,int recurso);
 }

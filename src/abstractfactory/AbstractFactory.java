@@ -11,8 +11,8 @@ import abstractfactory.vehiculos.Vehiculo;
  */
 
 public interface AbstractFactory {
-    Edificio getEdificio(int type);
-    Militante getMilitante(int type);
-    Terrestre getTerrestre(int type);
-    Vehiculo getVehiculo(int type);
+    public Edificio getEdificio(int type);
+    public Militante getMilitante(int type);
+    public Terrestre getTerrestre(int type);
+    public Vehiculo getVehiculo(int type);
 }

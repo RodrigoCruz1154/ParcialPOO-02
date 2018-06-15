@@ -39,9 +39,10 @@ public class Entrenamiento implements Edificio {
     }
 
     @Override
-    public void buildEdificio() {
+    public boolean buildEdificio() {
         System.out.println(ANSI_GREEN+"Construyendo, por favor espere..."+ANSI_RESET);
         System.out.println("-------------------------------------------");
+        return true;
     }
 
     @Override
@@ -80,5 +81,10 @@ public class Entrenamiento implements Edificio {
 
         }
 
+    }
+
+    @Override
+    public int getRecurso(int dia,int recurso) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

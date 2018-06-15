@@ -19,9 +19,10 @@ public class Taller implements Edificio{
     }
 
     @Override
-    public void buildEdificio() {
+    public boolean buildEdificio() {
         System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
         System.out.println("-------------------------------------------");
+        return true;
     }
 
     @Override
@@ -29,5 +30,10 @@ public class Taller implements Edificio{
         Taller vehiculos = new Taller();
         System.out.println("-------------------------------------------");
         System.out.println(ANSI_GREEN + "¡Se ha construido su taller!" + ANSI_RESET);
+    }
+
+    @Override
+    public int getRecurso(int dia,int recurso) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

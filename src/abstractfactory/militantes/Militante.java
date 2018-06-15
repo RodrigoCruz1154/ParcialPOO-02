@@ -10,5 +10,5 @@ package abstractfactory.militantes;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public interface Militante {
-    void contratar();
+    public void contratar();
 }

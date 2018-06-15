@@ -21,13 +21,20 @@ public class Torretas implements Edificio {
     }
 
     @Override
-    public void buildEdificio() {
-        
+    public boolean buildEdificio() {
+        System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
+        System.out.println("-------------------------------------------");
+        return true;
     }
 
     @Override
     public void usoEdificio(int unidad) {
         System.out.println("-------------------------------------------");
         System.out.println(ANSI_GREEN + "¡Se ha creado una torreta!" + ANSI_RESET);
+    }
+
+    @Override
+    public int getRecurso(int dia,int recurso) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

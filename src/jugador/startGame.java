@@ -29,9 +29,6 @@ public class startGame {
 
     public void startGame(int contDias, int contDiasJ2, Jugador jugador1, Jugador jugador2, BaseOperaciones base, ArrayList<Edificio> entrenamientos, int Nedificios, ArrayList<Edificio> talleres, ArrayList<Edificio> torretas, ArrayList<Edificio> canterias, ArrayList<Edificio> carpinterias, ArrayList<Edificio> bancos, int oroReal, int maderaReal, int metalReal, int Nunidades, int Nvehiculos, String player, boolean verdad, boolean isRunning, int number) {
 
-        int NedificiosJ2 = 0, NvehiculosJ2 = 0, NunidadesJ2 = 0;
-        int oroRealJ2 = 0, metalRealJ2 = 0, maderaRealJ2 = 0;
-
         AbstractFactory enBatalla;
         Scanner input = new Scanner(System.in);
         boolean turno = true;
@@ -81,14 +78,6 @@ public class startGame {
         }
 
         System.out.println("Oro: " + base.getOro() + "\nMadera: " + base.getMadera() + "\nMetal: " + base.getMetal() + "\n------------------");
-        if (number == 2) {
-            oroRealJ2 = oroReal;
-            maderaRealJ2 = maderaReal;
-            metalRealJ2 = metalReal;
-            NunidadesJ2 = Nunidades;
-            NvehiculosJ2 = Nvehiculos;
-            NedificiosJ2 = Nedificios;
-        }
         while (turno) {
             System.out.println("Escoge una acción.\n1.Crear un centro de entrenamiento.\n2.Crear un taller.\n3.Crear una torreta.\n4.Crear Canteria.\n5.Crear Carpinteria.\n6.Crear Banco.\n7.Ver estado.\n8.Terminar turno.\n9.Rendirse\n-------------------------");
             int caso = input.nextInt();
@@ -103,28 +92,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
-
-                    valorOro = base.getOroReal();
-                    valorMetal = base.getMetalReal();
-                    valorMadera = base.getMetalReal();
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (800 > 300 && 200 > 100 && 200 > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-                            centroE.usoEdificio(0);
-                            entrenamientos.add(centroE);
-                            Nedificios = Nedificios + 1;
-                            size = entrenamientos.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir una unidad terrestre, escriba 10 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -140,24 +113,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (valorOro > 300 && valorMetal > 100 && valorMadera > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-                            centroE.usoEdificio(0);
-                            entrenamientos.add(centroE);
-                            Nedificios = Nedificios + 1;
-                            size = entrenamientos.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir una unidad terrestre, escriba 10 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -177,28 +138,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
-
-                    valorOro = base.getOroReal();
-                    valorMetal = base.getMetalReal();
-                    valorMadera = base.getMetalReal();
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (800 > 300 && 200 > 100 && 200 > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-                            taller.usoEdificio(0);
-                            talleres.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = talleres.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir una unidad terrestre, escriba 10 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -214,24 +159,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (valorOro > 300 && valorMetal > 100 && valorMadera > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-                            taller.usoEdificio(0);
-                            talleres.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = talleres.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir una unidad terrestre, escriba 10 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -251,28 +184,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
-
-                    valorOro = base.getOroReal();
-                    valorMetal = base.getMetalReal();
-                    valorMadera = base.getMetalReal();
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (800 > 300 && 200 > 100 && 200 > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-                            torreta.usoEdificio(0);
-                            torretas.add(torreta);
-                            Nedificios = Nedificios + 1;
-                            size = torretas.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir un vehículo, escriba 11 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -288,22 +205,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (valorOro > 300 && valorMetal > 100 && valorMadera > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-                            torreta.usoEdificio(0);
-                            torretas.add(torreta);
-                            Nedificios = Nedificios + 1;
-                            size = torretas.size();
-                            accion = 0;
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -334,29 +241,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
-
-                    valorOro = base.getOroReal();
-                    valorMetal = base.getMetalReal();
-                    valorMadera = base.getMetalReal();
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (800 > 300 && 200 > 100 && 200 > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-
-                            canteria.usoEdificio(0);
-                            canterias.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = canterias.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir un vehículo, escriba 11 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -372,23 +262,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (valorOro > 300 && valorMetal > 100 && valorMadera > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-
-                            canteria.usoEdificio(0);
-                            canterias.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = canterias.size();
-                            accion = 0;
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -409,29 +288,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
-
-                    valorOro = base.getOroReal();
-                    valorMetal = base.getMetalReal();
-                    valorMadera = base.getMetalReal();
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (800 > 300 && 200 > 100 && 200 > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-
-                            carpinteria.usoEdificio(0);
-                            carpinterias.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = carpinterias.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir un vehículo, escriba 11 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -447,23 +309,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (valorOro > 300 && valorMetal > 100 && valorMadera > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-
-                            carpinteria.usoEdificio(0);
-                            carpinterias.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = carpinterias.size();
-                            accion = 0;
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -484,29 +335,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
-
-                    valorOro = base.getOroReal();
-                    valorMetal = base.getMetalReal();
-                    valorMadera = base.getMetalReal();
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (800 > 300 && 200 > 100 && 200 > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-
-                            banco.usoEdificio(0);
-                            bancos.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = bancos.size();
-                            accion = 0;
-                            System.out.println("Si desea añadir un vehículo, escriba 11 en el menú principal.");
-                            System.out.println("-------------------------------------------");
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -522,23 +356,12 @@ public class startGame {
                     int metalActual = base.getMetal() - 100;
                     int maderaActual = base.getMadera() - 140;
 
-                    base.setOro(oroActual);
-                    base.setOroReal(base.getOro());
-                    base.setMetal(metalActual);
-                    base.setMetalReal(base.getMetal());
-                    base.setMadera(maderaActual);
-                    base.setMaderaReal(base.getMadera());
+                    valorOro = banco.getRecurso(oroActual, contDias);
+                    valorMetal = canteria.getRecurso(metalActual, contDias);
+                    valorMadera = carpinteria.getRecurso(maderaActual, contDias);
 
                     if (valorOro > 300 && valorMetal > 100 && valorMadera > 140) {
                         centroE.buildEdificio();
-                        if (accion == 1) {
-
-                            banco.usoEdificio(0);
-                            bancos.add(taller);
-                            Nedificios = Nedificios + 1;
-                            size = bancos.size();
-                            accion = 0;
-                        }
                         turno = true;
                     } else {
                         System.out.println("No tiene suficientes recursos.");
@@ -582,7 +405,64 @@ public class startGame {
                     }
                 }
             }
-
+            if (centroE.buildEdificio() == true) {
+                if (accion == 1) {
+                    centroE.usoEdificio(0);
+                    entrenamientos.add(centroE);
+                    Nedificios = Nedificios + 1;
+                    size = entrenamientos.size();
+                    accion = 0;
+                    System.out.println("Si desea añadir una unidad terrestre, escriba 10 en el menú principal.");
+                    System.out.println("-------------------------------------------");
+                }
+            }
+            if (taller.buildEdificio() == true) {
+                if (accion == 1) {
+                    taller.usoEdificio(0);
+                    talleres.add(taller);
+                    Nedificios = Nedificios + 1;
+                    size = talleres.size();
+                    accion = 0;
+                    System.out.println("Si desea añadir una unidad terrestre, escriba 11 en el menú principal.");
+                    System.out.println("-------------------------------------------");
+                }
+            }
+            if (torreta.buildEdificio() == true) {
+                if (accion == 1) {
+                    torreta.usoEdificio(0);
+                    torretas.add(torreta);
+                    Nedificios = Nedificios + 1;
+                    size = torretas.size();
+                    accion = 0;
+                }
+            }
+            if (canteria.buildEdificio() == true) {
+                if (accion == 1) {
+                    canteria.getRecurso(contDias, metalReal);
+                    canterias.add(canteria);
+                    Nedificios = Nedificios + 1;
+                    size = canterias.size();
+                    accion = 0;
+                }
+            }
+            if (carpinteria.buildEdificio() == true) {
+                if (accion == 1) {
+                    carpinteria.getRecurso(contDias, maderaReal);
+                    carpinterias.add(carpinteria);
+                    Nedificios = Nedificios + 1;
+                    size = carpinterias.size();
+                    accion = 0;
+                }
+            }
+            if (banco.buildEdificio() == true) {
+                if (accion == 1) {
+                    banco.getRecurso(contDias, oroReal);
+                    bancos.add(banco);
+                    Nedificios = Nedificios + 1;
+                    size = bancos.size();
+                    accion = 0;
+                }
+            }
             if (caso == 10) {
                 if (size != 0) {
                     centroE.usoEdificio(10);
@@ -610,7 +490,7 @@ public class startGame {
                             }*/
             if (turno == false) {
                 break;
-            }
+            }           
             accion = accion + 1;
         }
     }

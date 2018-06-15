@@ -151,9 +151,9 @@ public class BaseOperaciones implements Edificio {
             int contDiasJ2 = 1;
             boolean isRunning = true;
             while (isRunning) {
-                int iteraciones = 0;
                 boolean verdad = true;
                 while (verdad) { // base de operaciones para jugador 1
+//JUGADOR 1
                     if (player1.equals("Earth")) {
                             BaseOperaciones base = new BaseOperaciones();
                             base.setVida(5500);
@@ -256,11 +256,17 @@ public class BaseOperaciones implements Edificio {
     }
 
     @Override
-    public void buildEdificio() {
+    public boolean buildEdificio() {
+        return true;
     }
 
     @Override
     public void usoEdificio(int unidad) {
 
+    }
+
+    @Override
+    public int getRecurso(int dia,int Recurso) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
