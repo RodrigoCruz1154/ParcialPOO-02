@@ -500,7 +500,7 @@ public class startGame {
                     taller.usoEdificio(10);
                     Nvehiculos = Nvehiculos + 1;
                 } else {
-                    System.out.println(ANSI_RED + "No se pueden añadir unidades terrestres porque hace falta un edificio para entrenarlos." + ANSI_RESET);
+                    System.out.println(ANSI_RED + "No se pueden añadir vehículos porque hace falta un edificio para entrenarlos." + ANSI_RESET);
                     System.out.println("----------------------------");
                 }
             }
