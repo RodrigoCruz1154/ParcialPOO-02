@@ -12,9 +12,11 @@ import abstractfactory.edificios.Edificio;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static jugador.Jugar.AnsiCodeExample.ANSI_BLUE;
+import static jugador.Jugar.AnsiCodeExample.ANSI_GREEN;
 import static jugador.Jugar.AnsiCodeExample.ANSI_MAGENTA;
 import static jugador.Jugar.AnsiCodeExample.ANSI_RED;
 import static jugador.Jugar.AnsiCodeExample.ANSI_RESET;
+import static jugador.Jugar.AnsiCodeExample.ANSI_YELLOW;
 
 /**
  *
@@ -25,8 +27,11 @@ public class startGame {
     public startGame() {
     }
 
-    public void startGame(int contDias,Jugador jugador1,Jugador jugador2,BaseOperaciones base,ArrayList<Edificio> entrenamientos, int Nedificios, ArrayList<Edificio> talleres, ArrayList<Edificio> torretas, ArrayList<Edificio> canterias, ArrayList<Edificio> carpinterias, ArrayList<Edificio> bancos,int oroReal, int maderaReal, int metalReal, int Nunidades, int Nvehiculos,String player,boolean verdad,boolean isRunning,int number) {
-        
+    public void startGame(int contDias, int contDiasJ2, Jugador jugador1, Jugador jugador2, BaseOperaciones base, ArrayList<Edificio> entrenamientos, int Nedificios, ArrayList<Edificio> talleres, ArrayList<Edificio> torretas, ArrayList<Edificio> canterias, ArrayList<Edificio> carpinterias, ArrayList<Edificio> bancos, int oroReal, int maderaReal, int metalReal, int Nunidades, int Nvehiculos, String player, boolean verdad, boolean isRunning, int number) {
+
+        int NedificiosJ2 = 0, NvehiculosJ2 = 0, NunidadesJ2 = 0;
+        int oroRealJ2 = 0, metalRealJ2 = 0, maderaRealJ2 = 0;
+
         AbstractFactory enBatalla;
         Scanner input = new Scanner(System.in);
         boolean turno = true;
@@ -42,9 +47,48 @@ public class startGame {
         int size = 0;
         int valorOro = 0, valorMetal = 0, valorMadera = 0;
 
-        System.out.println(ANSI_MAGENTA + "Día " + contDias + ANSI_RESET);
-        System.out.println(ANSI_BLUE + "- Crea tu arsenal - " + ANSI_RESET + jugador1.getNombre1());
+        if (number == 1) {
+            System.out.println(ANSI_MAGENTA + "Día " + contDias + ANSI_RESET);
+        }
+        if (number == 2) {
+            System.out.println(ANSI_MAGENTA + "Día " + contDiasJ2 + ANSI_RESET);
+        }
+
+        if (number == 1 && player.equals("Earth")) {
+            System.out.println(ANSI_BLUE + "- Crea tu arsenal - " + ANSI_RESET + jugador1.getNombre1());
+        }
+        if (number == 1 && player.equals("Comet")) {
+            System.out.println(ANSI_GREEN + "- Crea tu arsenal - " + ANSI_RESET + jugador1.getNombre1());
+        }
+        if (number == 1 && player.equals("Moon")) {
+            System.out.println(ANSI_RED + "- Crea tu arsenal - " + ANSI_RESET + jugador1.getNombre1());
+        }
+        if (number == 1 && player.equals("Star")) {
+            System.out.println(ANSI_YELLOW + "- Crea tu arsenal - " + ANSI_RESET + jugador1.getNombre1());
+        }
+
+        if (number == 2 && player.equals("Earth")) {
+            System.out.println(ANSI_BLUE + "- Crea tu arsenal - " + ANSI_RESET + jugador2.getNombre());
+        }
+        if (number == 2 && player.equals("Comet")) {
+            System.out.println(ANSI_GREEN + "- Crea tu arsenal - " + ANSI_RESET + jugador2.getNombre());
+        }
+        if (number == 2 && player.equals("Moon")) {
+            System.out.println(ANSI_RED + "- Crea tu arsenal - " + ANSI_RESET + jugador2.getNombre());
+        }
+        if (number == 2 && player.equals("Star")) {
+            System.out.println(ANSI_YELLOW + "- Crea tu arsenal - " + ANSI_RESET + jugador2.getNombre());
+        }
+
         System.out.println("Oro: " + base.getOro() + "\nMadera: " + base.getMadera() + "\nMetal: " + base.getMetal() + "\n------------------");
+        if (number == 2) {
+            oroRealJ2 = oroReal;
+            maderaRealJ2 = maderaReal;
+            metalRealJ2 = metalReal;
+            NunidadesJ2 = Nunidades;
+            NvehiculosJ2 = Nvehiculos;
+            NedificiosJ2 = Nedificios;
+        }
         while (turno) {
             System.out.println("Escoge una acción.\n1.Crear un centro de entrenamiento.\n2.Crear un taller.\n3.Crear una torreta.\n4.Crear Canteria.\n5.Crear Carpinteria.\n6.Crear Banco.\n7.Ver estado.\n8.Terminar turno.\n9.Rendirse\n-------------------------");
             int caso = input.nextInt();
@@ -504,10 +548,18 @@ public class startGame {
             }
 
             if (caso == 8) {
-                System.out.println(ANSI_RED + "Fin del turno de " + player + ANSI_RESET);
-                System.out.println("----------------------------");
-                turno = false;
-                verdad = false;
+                if (number == 1) {
+                    System.out.println(ANSI_RED + "Fin del turno de " + jugador1.getBando1() + ANSI_RESET);
+                    System.out.println("----------------------------");
+                    turno = false;
+                    verdad = false;
+                }
+                if (number == 2) {
+                    System.out.println(ANSI_RED + "Fin del turno de " + jugador2.getBando() + ANSI_RESET);
+                    System.out.println("----------------------------");
+                    turno = false;
+                    verdad = false;
+                }
 
             }
 
@@ -516,12 +568,18 @@ public class startGame {
                 String decision = input.next();
                 String finald = decision.toUpperCase();
                 if (finald.equals("S")) {
-                    System.out.println("-----------------------------------");
-                    System.out.println(ANSI_BLUE + "Gana: " + jugador2.getNombre() + " | " + jugador2.getBando() + ANSI_RESET);
-                    System.out.println(ANSI_RED + "Pierde: " + jugador1.getNombre1() + " | " + jugador1.getBando1() + ANSI_RESET);
-                    turno = false;
-                    isRunning = false;
-                    verdad = false;
+                    if (number == 1) {
+                        System.out.println("-----------------------------------");
+                        System.out.println(ANSI_BLUE + "Gana: " + jugador2.getNombre() + " | " + jugador2.getBando() + ANSI_RESET);
+                        System.out.println(ANSI_RED + "Pierde: " + jugador1.getNombre1() + " | " + jugador1.getBando1() + ANSI_RESET);
+                        System.exit(0);
+                    }
+                    if (number == 2) {
+                        System.out.println("-----------------------------------");
+                        System.out.println(ANSI_BLUE + "Gana: " + jugador1.getNombre1() + " | " + jugador1.getBando1() + ANSI_RESET);
+                        System.out.println(ANSI_RED + "Pierde: " + jugador2.getNombre() + " | " + jugador2.getBando() + ANSI_RESET);
+                        System.exit(0);
+                    }
                 }
             }
 
@@ -555,6 +613,5 @@ public class startGame {
             }
             accion = accion + 1;
         }
-
     }
 }

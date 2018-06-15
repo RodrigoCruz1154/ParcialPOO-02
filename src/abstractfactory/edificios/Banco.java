@@ -13,7 +13,16 @@ import static jugador.Jugar.AnsiCodeExample.ANSI_RESET;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public class Banco implements Edificio {
+    
+    private int oro;
 
+    public int getOro() {
+        return oro;
+    }
+
+    public void setOro(int oro) {
+        this.oro = oro;
+    }
     @Override
     public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -27,6 +36,8 @@ public class Banco implements Edificio {
 
     @Override
     public void usoEdificio(int unidad) {
+        Banco banco = new Banco();
+        banco.setOro(unidad);
         System.out.println("-------------------------------------------");
         System.out.println(ANSI_GREEN+"¡Se ha construido su banco!"+ANSI_RESET);
     }

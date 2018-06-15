@@ -139,6 +139,8 @@ public class BaseOperaciones implements Edificio {
         System.out.println("\n---------------------");
 
         if (inGame == 1) {
+            startGame inicioJ1 = new startGame();
+            startGame inicioJ2 = new startGame();
             System.out.println("\n---------------------");
             System.out.println(ANSI_BLUE + "¡Comienza la batalla!" + ANSI_RESET);
             System.out.println("---------------------");
@@ -146,17 +148,20 @@ public class BaseOperaciones implements Edificio {
             System.out.println("----------------------------------------------");
             String player1 = jugador1.getBando1();
             int contDias = 1;
+            int contDiasJ2 = 1;
             boolean isRunning = true;
             while (isRunning) {
+                int iteraciones = 0;
                 boolean verdad = true;
                 while (verdad) { // base de operaciones para jugador 1
                     if (player1.equals("Earth")) {
-                        BaseOperaciones base = new BaseOperaciones();
-                        base.setVida(5500);
-                        base.setMadera(300);
-                        base.setOro(800);
-                        base.setMetal(300);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                            BaseOperaciones base = new BaseOperaciones();
+                            base.setVida(5500);
+                            base.setMadera(300);
+                            base.setOro(800);
+                            base.setMetal(300);
+                            inicioJ1.startGame(contDias, contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning, 1);
+                            verdad = false;
                     }
                     if (player1.equals("Comet")) {
                         BaseOperaciones base = new BaseOperaciones();
@@ -164,7 +169,8 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(300);
                         base.setOro(800);
                         base.setMetal(300);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                        inicioJ1.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                        verdad = false;
                     }
                     if (player1.equals("Moon")) {
                         BaseOperaciones base = new BaseOperaciones();
@@ -172,7 +178,8 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(300);
                         base.setOro(800);
                         base.setMetal(300);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                        inicioJ1.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                        verdad = false;
                     }
                     if (player1.equals("Star")) {
                         BaseOperaciones base = new BaseOperaciones();
@@ -180,7 +187,8 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(200);
                         base.setOro(800);
                         base.setMetal(200);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                        inicioJ1.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning,1);
+                        verdad = false;
                     }
                     if (verdad == false) {
                         break;
@@ -192,7 +200,6 @@ public class BaseOperaciones implements Edificio {
                 contDias = contDias + 1;
 
 //JUGADOR 2
-                int contDiasJ2 = 1;
                 String player2 = jugador2.getBando();
                 boolean cierto = true;
                 while (cierto) { // base de operaciones para jugador 2
@@ -202,7 +209,8 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(200);
                         base.setOro(800);
                         base.setMetal(200);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning, 2);
+                        inicioJ2.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player2, verdad, isRunning, 2);
+                        cierto = false;
                     }
                     if (player2.equals("Comet")) {
 
@@ -211,7 +219,8 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(200);
                         base.setOro(800);
                         base.setMetal(200);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning, 2);
+                        inicioJ2.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player2, verdad, isRunning, 2);
+                        cierto = false;
                     }
                     if (player2.equals("Moon")) {
 
@@ -220,7 +229,8 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(200);
                         base.setOro(800);
                         base.setMetal(200);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning, 2);
+                        inicioJ2.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player2, verdad, isRunning, 2);
+                        cierto = false;
                     }
                     if (player2.equals("Star")) {
 
@@ -229,13 +239,14 @@ public class BaseOperaciones implements Edificio {
                         base.setMadera(200);
                         base.setOro(800);
                         base.setMetal(200);
-                        new startGame().startGame(contDias, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player1, verdad, isRunning, 2);
+                        inicioJ2.startGame(contDias,contDiasJ2, jugador1, jugador2, base, entrenamientos, Nedificios, talleres, torretas, canterias, carpinterias, bancos, oroReal, maderaReal, metalReal, Nunidades, Nvehiculos, player2, verdad, isRunning, 2);
+                        cierto = false;
                     }
                     if (cierto == false) {
                         break;
                     }
-                    contDiasJ2 = contDiasJ2 + 1;
                 }
+                contDiasJ2 = contDiasJ2 + 1;
                 if (isRunning == false) {
                     break;
                 }
