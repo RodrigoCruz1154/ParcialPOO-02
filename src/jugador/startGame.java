@@ -26,7 +26,30 @@ public class startGame {
 
     public startGame() {
     }
-
+/**
+ * Toda la lógica del juego
+ * @param contDias
+ * @param contDiasJ2
+ * @param jugador1
+ * @param jugador2
+ * @param base
+ * @param entrenamientos
+ * @param Nedificios
+ * @param talleres
+ * @param torretas
+ * @param canterias
+ * @param carpinterias
+ * @param bancos
+ * @param oroReal
+ * @param maderaReal
+ * @param metalReal
+ * @param Nunidades
+ * @param Nvehiculos
+ * @param player
+ * @param verdad
+ * @param isRunning
+ * @param number 
+ */
     public void startGame(int contDias, int contDiasJ2, Jugador jugador1, Jugador jugador2, BaseOperaciones base, ArrayList<Edificio> entrenamientos, int Nedificios, ArrayList<Edificio> talleres, ArrayList<Edificio> torretas, ArrayList<Edificio> canterias, ArrayList<Edificio> carpinterias, ArrayList<Edificio> bancos, int oroReal, int maderaReal, int metalReal, int Nunidades, int Nvehiculos, String player, boolean verdad, boolean isRunning, int number) {
 
         AbstractFactory enBatalla;

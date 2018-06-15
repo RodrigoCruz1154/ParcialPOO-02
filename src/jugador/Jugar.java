@@ -31,7 +31,9 @@ public class Jugar {
         public static final String ANSI_MAGENTA = "\u001B[35m";
         public static final String ANSI_CYAN = "\u001B[36m";
     }
-    
+    /**
+     * Inicia el juego
+     */
     public void Jugar() {
         Scanner input = new Scanner(System.in);
         boolean flag = true, bandera = true;
