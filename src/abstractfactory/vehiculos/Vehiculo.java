@@ -10,5 +10,6 @@ package abstractfactory.vehiculos;
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 public interface Vehiculo {
-    public void comprar();
+    public int atacar();
+    public void daño(int salud);
 }

@@ -27,7 +27,10 @@ public class Banco implements Edificio {
     public void build(int iteracion, String nombre, String bando, String nombre2, String bando2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+/**
+ * Indica al usuario que se está construyendo su edificacion
+ * @return un booleano para poder habilitar otras fases.
+ */
     @Override
     public boolean buildEdificio() {
         System.out.println(ANSI_GREEN + "Construyendo, por favor espere..." + ANSI_RESET);
@@ -38,7 +41,12 @@ public class Banco implements Edificio {
     @Override
     public void usoEdificio(int unidad) {
     }
-
+/**
+ * 
+ * @param dia es para que por cada dia que pase se añada más oro
+ * @param recurso es el recurso a actualizar
+ * @return nuevo oro
+ */
     @Override
     public int getRecurso(int dia,int recurso) {
         Banco banco = new Banco();

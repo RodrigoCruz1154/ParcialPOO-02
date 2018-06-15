@@ -79,7 +79,7 @@ public class startGame {
 
         System.out.println("Oro: " + base.getOro() + "\nMadera: " + base.getMadera() + "\nMetal: " + base.getMetal() + "\n------------------");
         while (turno) {
-            System.out.println("Escoge una acción.\n1.Crear un centro de entrenamiento.\n2.Crear un taller.\n3.Crear una torreta.\n4.Crear Canteria.\n5.Crear Carpinteria.\n6.Crear Banco.\n7.Ver estado.\n8.Terminar turno.\n9.Rendirse\n-------------------------");
+            System.out.println("Escoge una acción.\n1.Crear un centro de entrenamiento.\n2.Crear un taller.\n3.Crear una torreta.\n4.Crear Canteria.\n5.Crear Carpinteria.\n6.Crear Banco.\n7.Ver estado.\n8.Terminar turno.\n9.Rendirse\n10.Gestionar ataque.\n-------------------------");
             int caso = input.nextInt();
             if (caso == 1) {
                 int accionar = 0;
@@ -224,7 +224,7 @@ public class startGame {
                     System.out.println("------------------\n" + ANSI_MAGENTA + "-Recursos disponibles-\n" + ANSI_RESET + "Oro: " + base.getOro() + "\nMadera: " + base.getMadera() + "\nMetal: " + base.getMetal() + "\nNúmero de edificios creados: " + Nedificios + "\nNúmero de reclutas: " + Nunidades + "\nNúmero de vehículos creados: " + Nvehiculos + "\n------------------\n");
                 }
                 if (accion == 1) {
-                    System.out.println("------------------\n" + ANSI_MAGENTA + "-Recursos disponibles-\n" + ANSI_RESET + "Oro: " + oroReal + "\nMadera: " + maderaReal + "\nMetal: " + metalReal + "\nNúmero de edificios creados: " + Nedificios + "\nNúmero de reclutas: " + Nunidades + "\nNúmero de vehículos creados: " + Nvehiculos + "\n------------------\n");
+                    System.out.println("------------------\n" + ANSI_MAGENTA + "-Recursos disponibles-\n" + ANSI_RESET + "Oro: " + valorOro + "\nMadera: " + valorMadera + "\nMetal: " + valorMetal + "\nNúmero de edificios creados: " + Nedificios + "\nNúmero de reclutas: " + Nunidades + "\nNúmero de vehículos creados: " + Nvehiculos + "\n------------------\n");
                     accion = 0;
                 }
 

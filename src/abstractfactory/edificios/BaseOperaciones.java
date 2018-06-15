@@ -118,7 +118,14 @@ public class BaseOperaciones implements Edificio {
     public void setVida(int vida) {
         this.vida = vida;
     }
-
+/**
+ * Inicializa el juego
+ * @param identificador para poder jugar por fases
+ * @param nombre usuario
+ * @param bando usuario
+ * @param nombre2 usuario
+ * @param bando2  usuario
+ */
     @Override
     public void build(int identificador, String nombre, String bando, String nombre2, String bando2) {
         int inGame = 0;
